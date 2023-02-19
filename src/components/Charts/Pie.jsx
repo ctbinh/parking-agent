@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   AccumulationChartComponent,
   AccumulationSeriesCollectionDirective,
@@ -8,9 +8,9 @@ import {
   AccumulationDataLabel,
   Inject,
   AccumulationTooltip,
-} from "@syncfusion/ej2-react-charts";
+} from '@syncfusion/ej2-react-charts';
 
-import { useStateContext } from "../../contexts/ContextProvider";
+import { useStateContext } from '../../contexts/ContextProvider';
 
 const Doughnut = ({ id, data, legendVisiblity, height }) => {
   const { currentMode } = useStateContext();
@@ -18,9 +18,9 @@ const Doughnut = ({ id, data, legendVisiblity, height }) => {
   return (
     <AccumulationChartComponent
       id={id}
-      legendSettings={{ visible: legendVisiblity, background: "white" }}
+      legendSettings={{ visible: legendVisiblity, background: 'white' }}
       height={height}
-      background={currentMode === "Dark" ? "#33373E" : "#fff"}
+      background={currentMode === 'Dark' ? '#33373E' : '#fff'}
       tooltip={{ enable: true }}
     >
       <Inject
@@ -46,11 +46,11 @@ const Doughnut = ({ id, data, legendVisiblity, height }) => {
           explodeIndex={2}
           dataLabel={{
             visible: true,
-            name: "text",
-            position: "Inside",
+            name: 'text',
+            position: 'Inside',
             font: {
-              fontWeight: "600",
-              color: "#fff",
+              fontWeight: '600',
+              color: '#fff',
             },
           }}
         />

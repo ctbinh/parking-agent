@@ -1,6 +1,6 @@
-import React, { Fragment, useState } from "react";
-import { Navigate, useLocation } from "react-router-dom";
-import { Login } from "../../pages";
+import React, { Fragment, useState } from 'react';
+import { Navigate, useLocation } from 'react-router-dom';
+import { Login } from '../../pages';
 
 const AuthGuard = ({ children }) => {
   // const { isAuthenticated } = useAuth();

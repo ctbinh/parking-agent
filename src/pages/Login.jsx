@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import { Button } from "../components";
-import TextInput from "../components/TextInput";
-import { useStateContext } from "../contexts/ContextProvider";
-import { loginImage } from "../data";
+import React, { useState } from 'react';
+import { Button } from '../components';
+import TextInput from '../components/TextInput';
+import { useStateContext } from '../contexts/ContextProvider';
+import { loginImage } from '../data';
 
 const Login = () => {
   const { currentColor } = useStateContext();
@@ -10,14 +10,20 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   return (
     <div className="w-screen h-screen flex">
-      <div className={`w-6/12 h-screen items-center flex justify-center bg-[${currentColor}]`} style={{ backgroundColor: currentColor }}>
+      <div
+        className={`w-6/12 h-screen items-center flex justify-center bg-[${currentColor}]`}
+        style={{ backgroundColor: currentColor }}
+      >
         <img src={loginImage} alt="login" />
       </div>
       <div className="flex-1 flex flex-col items-center justify-evenly py-28 px-14">
         <h1 className="text-center font-bold text-xl">Đăng nhập</h1>
         <div className="w-full">
-          <TextInput fieldName={"Username"} />
-          <TextInput type={showPassword ? "text" : "password"} fieldName={"Password"} />
+          <TextInput fieldName={'Username'} />
+          <TextInput
+            type={showPassword ? 'text' : 'password'}
+            fieldName={'Password'}
+          />
           <div className="flex text-sm font-medium">
             <div class="flex items-start mb-6">
               <div class="flex items-center h-5">
@@ -30,14 +36,26 @@ const Login = () => {
                   onChange={() => setShowPassword(!showPassword)}
                 />
               </div>
-              <label for="remember" class="ml-2 text-gray-900 dark:text-gray-300">
+              <label
+                for="remember"
+                class="ml-2 text-gray-900 dark:text-gray-300"
+              >
                 Show password
               </label>
             </div>
-            <label className="text-right ml-auto text-gray-400 cursor-pointer">Forgot password?</label>
+            <label className="text-right ml-auto text-gray-400 cursor-pointer">
+              Forgot password?
+            </label>
           </div>
         </div>
-        <Button onClick={login} color="white" bgColor={currentColor} text="Sign In" borderRadius="10px" width={"full"} />
+        <Button
+          onClick={login}
+          color="white"
+          bgColor={currentColor}
+          text="Sign In"
+          borderRadius="10px"
+          width={'full'}
+        />
       </div>
     </div>
   );
