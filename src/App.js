@@ -3,8 +3,27 @@ import { Route, Routes } from "react-router-dom";
 import "./App.css";
 
 import { useStateContext } from "./contexts/ContextProvider";
-import { Ecommerce, Orders, Calendar, Employees, Stacked, Pyramid, Customers, Kanban, Line, Area, Bar, Pie, Financial, ColorPicker, ColorMapping, Editor, Login } from "./pages";
+import {
+  Ecommerce,
+  Orders,
+  Calendar,
+  Employees,
+  Stacked,
+  Pyramid,
+  Customers,
+  Kanban,
+  Line,
+  Area,
+  Bar,
+  Pie,
+  Financial,
+  ColorPicker,
+  ColorMapping,
+  Editor,
+  Login,
+} from "./pages";
 import DashboardLayout from "./components/DashboardLayout";
+import ParkingInformation from "./pages/ParkingInformation/ParkingInformation";
 
 const App = () => {
   const { setCurrentColor, setCurrentMode, currentMode } = useStateContext();
@@ -36,6 +55,10 @@ const App = () => {
             <Route path="/editor" element={<Editor />} />
             <Route path="/calendar" element={<Calendar />} />
             <Route path="/color-picker" element={<ColorPicker />} />
+            <Route
+              path="/parking-information"
+              element={<ParkingInformation />}
+            />
 
             {/* charts  */}
             <Route path="/line" element={<Line />} />
