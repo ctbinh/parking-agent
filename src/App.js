@@ -5,6 +5,7 @@ import "./App.css";
 import { useStateContext } from "./contexts/ContextProvider";
 import { Ecommerce, Orders, Calendar, Employees, Stacked, Pyramid, Customers, Kanban, Line, Area, Bar, Pie, Financial, ColorPicker, ColorMapping, Editor, Login } from "./pages";
 import DashboardLayout from "./components/DashboardLayout";
+import ParkingHistory from "./pages/ParkingHistory/ParkingHistory";
 
 const App = () => {
   const { setCurrentColor, setCurrentMode, currentMode } = useStateContext();
@@ -25,6 +26,7 @@ const App = () => {
           <Route path="/" element={<DashboardLayout />}>
             <Route path="/" element={<Ecommerce />} />
             <Route path="/ecommerce" element={<Ecommerce />} />
+            <Route path="/parking" element={<ParkingHistory />} />
 
             {/* pages  */}
             <Route path="/orders" element={<Orders />} />
