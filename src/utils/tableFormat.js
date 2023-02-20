@@ -1,18 +1,18 @@
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 import React from 'react';
+import { useStateContext } from '../contexts/ContextProvider';
 
-const gridParkingTotalTime = () => <div>12</div>;
-const gridParkingUser = (props) => (
-  <TooltipComponent content="Xem lịch sử gửi xe của người này">
-    <div className="text-green-500 cursor-pointer">{props.user.fullname}</div>
-  </TooltipComponent>
-);
-
-const gridParkingLicensePlate = (props) => (
-  <TooltipComponent content="Xem lịch sử gửi của xe này">
-    <div className="text-green-500 cursor-pointer">{props.license_plate}</div>
-  </TooltipComponent>
-);
+const GridParkingTotalTime = () => <div>12</div>;
+const GridParkingUser = (props) => {
+  const { displayPopup } = useStateContext();
+  return (
+    <TooltipComponent content="Xem thông tin người dùng">
+      <div onClick={displayPopup} className="text-green-500 cursor-pointer">
+        {props.user.fullname}
+      </div>
+    </TooltipComponent>
+  );
+};
 
 export const parkingsGrid = [
   {
@@ -20,14 +20,13 @@ export const parkingsGrid = [
     headerText: 'Biển số',
     width: '150',
     textAlign: 'Center',
-    template: gridParkingLicensePlate,
   },
   {
     field: 'user.fullname',
     headerText: 'Tên',
     width: '150',
     textAlign: 'Center',
-    template: gridParkingUser,
+    template: GridParkingUser,
   },
   {
     field: 'entry_time',
@@ -40,7 +39,7 @@ export const parkingsGrid = [
     headerText: 'Tổng thời gian',
     width: '120',
     textAlign: 'Center',
-    template: gridParkingTotalTime,
+    template: GridParkingTotalTime,
   },
   { field: 'fee', headerText: 'Phí', width: '120', textAlign: 'Center' },
 ];
@@ -51,14 +50,13 @@ export const parkedsGrid = [
     headerText: 'Biển số',
     width: '150',
     textAlign: 'Center',
-    template: gridParkingLicensePlate,
   },
   {
     field: 'user.fullname',
     headerText: 'Tên',
     width: '150',
     textAlign: 'Center',
-    template: gridParkingUser,
+    template: GridParkingUser,
   },
   {
     field: 'entry_time',
@@ -78,7 +76,7 @@ export const parkedsGrid = [
     headerText: 'Tổng thời gian',
     width: '120',
     textAlign: 'Center',
-    template: gridParkingTotalTime,
+    template: GridParkingTotalTime,
   },
   { field: 'fee', headerText: 'Phí', width: '120', textAlign: 'Center' },
 ];
@@ -93,6 +91,7 @@ export const parkingsData = [
     user: {
       user_id: '1',
       fullname: 'Cao Thanh Binh',
+      phone: '0372358493',
     },
   },
   {
@@ -104,6 +103,7 @@ export const parkingsData = [
     user: {
       user_id: '1',
       fullname: 'Cao Thanh Binh',
+      phone: '0372358493',
     },
   },
   {
@@ -115,6 +115,7 @@ export const parkingsData = [
     user: {
       user_id: '2',
       fullname: 'Nguyen Xuan Hieu',
+      phone: '0372358494',
     },
   },
 ];

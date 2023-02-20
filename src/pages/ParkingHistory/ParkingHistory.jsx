@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import ListParked from './ListParked';
 import ListParking from './ListParking';
+import Popup from '../../components/Popup';
+import UserInfo from './components/UserInfo';
 
 const tabs = [
   {
@@ -38,6 +40,9 @@ const ParkingHistory = () => {
         })}
       </ul>
       {targetTab === tabs[0].value ? <ListParked /> : <ListParking />}
+      <Popup header={'Thông tin cá nhân'} width={'35%'}>
+        <UserInfo />
+      </Popup>
     </div>
   );
 };

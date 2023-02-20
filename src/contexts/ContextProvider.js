@@ -16,6 +16,7 @@ export const ContextProvider = ({ children }) => {
   const [themeSettings, setThemeSettings] = useState(false);
   const [activeMenu, setActiveMenu] = useState(true);
   const [isClicked, setIsClicked] = useState(initialState);
+  const [showPopup, setShowPopup] = useState(false);
 
   const setMode = (e) => {
     setCurrentMode(e.target.value);
@@ -29,6 +30,13 @@ export const ContextProvider = ({ children }) => {
 
   const handleClick = (clicked) =>
     setIsClicked({ ...initialState, [clicked]: true });
+
+  const displayPopup = () => {
+    setShowPopup(true);
+  };
+  const closePopup = () => {
+    setShowPopup(false);
+  };
 
   return (
     // eslint-disable-next-line react/jsx-no-constructed-context-values
@@ -50,6 +58,9 @@ export const ContextProvider = ({ children }) => {
         setColor,
         themeSettings,
         setThemeSettings,
+        showPopup,
+        displayPopup,
+        closePopup,
       }}
     >
       {children}

@@ -519,8 +519,8 @@ export const links = [
     title: 'Dashboard',
     links: [
       {
-        name: 'ecommerce',
-        path: 'ecommerce',
+        name: 'Dashboard',
+        path: 'dashboard',
         icon: <FiShoppingBag />,
       },
     ],

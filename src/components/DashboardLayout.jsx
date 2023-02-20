@@ -11,9 +11,6 @@ import ThemeSettings from './ThemeSettings';
 const DashboardLayout = ({ children }) => {
   const { activeMenu, currentColor, themeSettings, setThemeSettings } =
     useStateContext();
-  useEffect(() => {
-    console.log(children);
-  }, [children]);
   return (
     <>
       <div className="fixed right-4 bottom-4" style={{ zIndex: '1000' }}>

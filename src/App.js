@@ -25,6 +25,7 @@ import {
 import DashboardLayout from './components/DashboardLayout';
 import ParkingHistory from './pages/ParkingHistory/ParkingHistory';
 import ParkingInformation from './pages/ParkingInformation/ParkingInformation';
+import Dashboard from './pages/Dashboard';
 
 const App = () => {
   const { setCurrentColor, setCurrentMode, currentMode } = useStateContext();
@@ -44,7 +45,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<DashboardLayout />}>
             <Route path="/" element={<Ecommerce />} />
-            <Route path="/ecommerce" element={<Ecommerce />} />
+            <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/parking" element={<ParkingHistory />} />
 
             {/* pages  */}
