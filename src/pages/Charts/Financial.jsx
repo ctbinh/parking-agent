@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   ChartComponent,
   SeriesCollectionDirective,
@@ -10,17 +10,17 @@ import {
   Zoom,
   Logarithmic,
   Crosshair,
-} from "@syncfusion/ej2-react-charts";
+} from '@syncfusion/ej2-react-charts';
 
 import {
   financialChartData,
   FinancialPrimaryXAxis,
   FinancialPrimaryYAxis,
-} from "../../data/dummy";
-import { useStateContext } from "../../contexts/ContextProvider";
-import { ChartsHeader } from "../../components";
+} from '../../data/dummy';
+import { useStateContext } from '../../contexts/ContextProvider';
+import { ChartsHeader } from '../../components';
 
-const date1 = new Date("2017, 1, 1");
+const date1 = new Date('2017, 1, 1');
 
 // eslint-disable-next-line consistent-return
 function filterValue(value) {
@@ -44,8 +44,8 @@ const Financial = () => {
           primaryYAxis={FinancialPrimaryYAxis}
           chartArea={{ border: { width: 0 } }}
           tooltip={{ enable: true, shared: true }}
-          crosshair={{ enable: true, lineType: "Vertical", line: { width: 0 } }}
-          background={currentMode === "Dark" ? "#33373E" : "#fff"}
+          crosshair={{ enable: true, lineType: 'Vertical', line: { width: 0 } }}
+          background={currentMode === 'Dark' ? '#33373E' : '#fff'}
         >
           <Inject
             services={[

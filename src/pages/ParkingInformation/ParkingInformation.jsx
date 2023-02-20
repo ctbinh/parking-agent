@@ -1,8 +1,8 @@
-import React from "react";
-import { Header } from "../../components";
-import ChangePassword from "./components/ChangePassword";
-import Email from "./components/Email";
-import Parking from "./components/Parking";
+import React from 'react';
+import { Header } from '../../components';
+import ChangePassword from './components/ChangePassword';
+import Email from './components/Email';
+import Parking from './components/Parking';
 
 function ParkingInformation() {
   return (

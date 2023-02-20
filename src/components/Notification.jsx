@@ -1,9 +1,9 @@
-import React from "react";
-import { MdOutlineCancel } from "react-icons/md";
+import React from 'react';
+import { MdOutlineCancel } from 'react-icons/md';
 
-import { Button } from ".";
-import { chatData } from "../data/dummy";
-import { useStateContext } from "../contexts/ContextProvider";
+import { Button } from '.';
+import { chatData } from '../data/dummy';
+import { useStateContext } from '../contexts/ContextProvider';
 
 const Notification = () => {
   const { currentColor } = useStateContext();
@@ -19,7 +19,7 @@ const Notification = () => {
             type="button"
             className="text-white text-xs rounded p-1 px-2 bg-orange-theme "
           >
-            {" "}
+            {' '}
             5 New
           </button>
         </div>
@@ -45,8 +45,8 @@ const Notification = () => {
             <div>
               <p className="font-semibold dark:text-gray-200">{item.message}</p>
               <p className="text-gray-500 text-sm dark:text-gray-400">
-                {" "}
-                {item.desc}{" "}
+                {' '}
+                {item.desc}{' '}
               </p>
             </div>
           </div>

@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import { Controller, useForm } from "react-hook-form";
+import React, { useState } from 'react';
+import { Controller, useForm } from 'react-hook-form';
 
-import Input from "../../../components/Input/Input";
-import { Button } from "../../../components";
+import Input from '../../../components/Input/Input';
+import { Button } from '../../../components';
 
 function Email() {
   const {
@@ -31,18 +31,18 @@ function Email() {
             <Input
               classNameInput={`w-full rounded-lg border-2  px-3 py-2 outline-none focus:shadow-sm ${
                 errors.email
-                  ? "border-red-300 focus:border-red-500"
-                  : "border-gray-300 focus:border-orange-400"
+                  ? 'border-red-300 focus:border-red-500'
+                  : 'border-gray-300 focus:border-orange-400'
               }`}
               register={register}
               type="email"
               name="email"
               placeholder="you@gmail.com"
               rules={{
-                required: "Bắt buộc",
+                required: 'Bắt buộc',
                 pattern: {
                   value: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
-                  message: "Email không đúng định dạng you@abc.com",
+                  message: 'Email không đúng định dạng you@abc.com',
                 },
               }}
               errorMessage={errors.email?.message}

@@ -1,13 +1,13 @@
-import { forwardRef, useState } from "react";
+import { forwardRef, useState } from 'react';
 
 const InputNumber = forwardRef(function InputNumberInner(
   {
     errorMessage,
     className,
-    classNameInput = "p-3 w-full outline-none border border-gray-300 focus:border-gray-500 rounded-sm focus:shadow-sm",
-    classNameError = "mt-1 text-red-600 min-h-[1.25rem] text-sm",
+    classNameInput = 'p-3 w-full outline-none border border-gray-300 focus:border-gray-500 rounded-sm focus:shadow-sm',
+    classNameError = 'mt-1 text-red-600 min-h-[1.25rem] text-sm',
     onChange,
-    value = "",
+    value = '',
     ...rest
   },
   ref
@@ -16,7 +16,7 @@ const InputNumber = forwardRef(function InputNumberInner(
 
   const handleChange = (event) => {
     const { value } = event.target;
-    if (/^\d+$/.test(value) || value === "") {
+    if (/^\d+$/.test(value) || value === '') {
       // Thực thi onChange callback từ bên ngoài truyền vào props
       onChange && onChange(event);
       // Cập nhật localValue state

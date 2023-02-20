@@ -1,11 +1,11 @@
-import { TimePicker } from "antd";
-import React, { useState } from "react";
-import { Controller, useForm } from "react-hook-form";
-import dayjs from "dayjs";
+import { TimePicker } from 'antd';
+import React, { useState } from 'react';
+import { Controller, useForm } from 'react-hook-form';
+import dayjs from 'dayjs';
 
-import Input from "../../../components/Input/Input";
-import InputNumber from "../../../components/Input/InputNumber";
-import { Button } from "../../../components";
+import Input from '../../../components/Input/Input';
+import InputNumber from '../../../components/Input/InputNumber';
+import { Button } from '../../../components';
 
 function Parking() {
   const {
@@ -17,11 +17,11 @@ function Parking() {
     control,
     formState: { errors },
   } = useForm();
-  const format = "HH:mm";
+  const format = 'HH:mm';
 
   const [valueTime, setValueTime] = useState(null);
   const onChangeTime = (time) => {
-    console.log("changed");
+    console.log('changed');
     setValueTime(time);
   };
 
@@ -42,13 +42,13 @@ function Parking() {
             <Input
               classNameInput={`w-full rounded-lg border-2  px-3 py-2 outline-none focus:shadow-sm ${
                 errors.name
-                  ? "border-red-300 focus:border-red-500"
-                  : "border-gray-300 focus:border-orange-400"
+                  ? 'border-red-300 focus:border-red-500'
+                  : 'border-gray-300 focus:border-orange-400'
               }`}
               register={register}
               name="name"
               placeholder="Tên nhà xe"
-              rules={{ required: "Bát buộc" }}
+              rules={{ required: 'Bát buộc' }}
               errorMessage={errors.name?.message}
             />
           </div>
@@ -61,13 +61,13 @@ function Parking() {
             <Input
               classNameInput={`w-full rounded-lg border-2 px-3 py-2 outline-none  focus:shadow-sm ${
                 errors.name
-                  ? "border-red-300 focus:border-red-500"
-                  : "border-gray-300 focus:border-orange-400"
+                  ? 'border-red-300 focus:border-red-500'
+                  : 'border-gray-300 focus:border-orange-400'
               }`}
               register={register}
               name="address"
               placeholder="Địa chỉ nhà xe"
-              rules={{ required: "Bát buộc" }}
+              rules={{ required: 'Bát buộc' }}
               errorMessage={errors.address?.message}
             />
           </div>
@@ -84,8 +84,8 @@ function Parking() {
                 <InputNumber
                   classNameInput={`w-full rounded-lg border-2  px-3 py-2 outline-none focus:shadow-sm ${
                     errors.phone
-                      ? "border-red-300 focus:border-red-500"
-                      : "border-gray-300 focus:border-orange-400"
+                      ? 'border-red-300 focus:border-red-500'
+                      : 'border-gray-300 focus:border-orange-400'
                   }`}
                   placeholder="Số điện thoại"
                   errorMessage={errors.phone?.message}
@@ -110,7 +110,7 @@ function Parking() {
                   format={format}
                   onChange={onChangeTime}
                   onSelect={(value) => {
-                    console.log("select", value);
+                    console.log('select', value);
                     setValueTime(value);
                   }}
                   className=" border-gray-300 hover:border-orange-400 shadow-sm "
@@ -123,7 +123,7 @@ function Parking() {
                   format={format}
                   onChange={onChangeTime}
                   onSelect={(value) => {
-                    console.log("select", value);
+                    console.log('select', value);
                     setValueTime(value);
                   }}
                   className=" border-gray-300 hover:border-orange-400 shadow-sm "

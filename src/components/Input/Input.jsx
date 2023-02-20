@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState } from 'react';
 
 export default function Input({
   errorMessage,
@@ -6,9 +6,9 @@ export default function Input({
   name,
   register,
   rules,
-  classNameInput = "p-3 w-full outline-none border border-gray-300 focus:border-gray-500 rounded-sm focus:shadow-sm",
-  classNameError = "mt-1 text-red-600 min-h-[1.25rem] text-sm",
-  classNameEye = "absolute top-[8px] right-[5px] h-5 w-5 cursor-pointer",
+  classNameInput = 'p-3 w-full outline-none border border-gray-300 focus:border-gray-500 rounded-sm focus:shadow-sm',
+  classNameError = 'mt-1 text-red-600 min-h-[1.25rem] text-sm',
+  classNameEye = 'absolute top-[8px] right-[5px] h-5 w-5 cursor-pointer',
   ...rest
 }) {
   const [openEye, setOpenEye] = useState(false);
@@ -19,21 +19,21 @@ export default function Input({
   };
 
   const handleType = () => {
-    if (rest.type === "password") {
-      return openEye ? "text" : "password";
+    if (rest.type === 'password') {
+      return openEye ? 'text' : 'password';
     }
     return rest.type;
   };
 
   return (
-    <div className={"relative w-full " + className}>
+    <div className={'relative w-full ' + className}>
       <input
         className={classNameInput}
         {...registerResult}
         {...rest}
         type={handleType()}
       />
-      {rest.type === "password" && openEye && (
+      {rest.type === 'password' && openEye && (
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -55,7 +55,7 @@ export default function Input({
           />
         </svg>
       )}
-      {rest.type === "password" && !openEye && (
+      {rest.type === 'password' && !openEye && (
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"

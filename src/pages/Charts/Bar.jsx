@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   ChartComponent,
   SeriesCollectionDirective,
@@ -9,15 +9,15 @@ import {
   Tooltip,
   ColumnSeries,
   DataLabel,
-} from "@syncfusion/ej2-react-charts";
+} from '@syncfusion/ej2-react-charts';
 
 import {
   barCustomSeries,
   barPrimaryXAxis,
   barPrimaryYAxis,
-} from "../../data/dummy";
-import { ChartsHeader } from "../../components";
-import { useStateContext } from "../../contexts/ContextProvider";
+} from '../../data/dummy';
+import { ChartsHeader } from '../../components';
+import { useStateContext } from '../../contexts/ContextProvider';
 
 const Bar = () => {
   const { currentMode } = useStateContext();
@@ -32,8 +32,8 @@ const Bar = () => {
           primaryYAxis={barPrimaryYAxis}
           chartArea={{ border: { width: 0 } }}
           tooltip={{ enable: true }}
-          background={currentMode === "Dark" ? "#33373E" : "#fff"}
-          legendSettings={{ background: "white" }}
+          background={currentMode === 'Dark' ? '#33373E' : '#fff'}
+          legendSettings={{ background: 'white' }}
         >
           <Inject
             services={[ColumnSeries, Legend, Tooltip, Category, DataLabel]}

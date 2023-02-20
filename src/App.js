@@ -1,8 +1,8 @@
-import React, { useEffect } from "react";
-import { Route, Routes } from "react-router-dom";
-import "./App.css";
+import React, { useEffect } from 'react';
+import { Route, Routes } from 'react-router-dom';
+import './App.css';
 
-import { useStateContext } from "./contexts/ContextProvider";
+import { useStateContext } from './contexts/ContextProvider';
 import {
   Ecommerce,
   Orders,
@@ -21,16 +21,17 @@ import {
   ColorMapping,
   Editor,
   Login,
-} from "./pages";
-import DashboardLayout from "./components/DashboardLayout";
-import ParkingInformation from "./pages/ParkingInformation/ParkingInformation";
+} from './pages';
+import DashboardLayout from './components/DashboardLayout';
+import ParkingInformation from './pages/ParkingInformation/ParkingInformation';
+import Tickets from './pages/Ticket/Tickets';
 
 const App = () => {
   const { setCurrentColor, setCurrentMode, currentMode } = useStateContext();
 
   useEffect(() => {
-    const currentThemeColor = localStorage.getItem("colorMode");
-    const currentThemeMode = localStorage.getItem("themeMode");
+    const currentThemeColor = localStorage.getItem('colorMode');
+    const currentThemeMode = localStorage.getItem('themeMode');
     if (currentThemeColor && currentThemeMode) {
       setCurrentColor(currentThemeColor);
       setCurrentMode(currentThemeMode);
@@ -38,7 +39,7 @@ const App = () => {
   }, [setCurrentColor, setCurrentMode]);
 
   return (
-    <div className={currentMode === "Dark" ? "dark" : ""}>
+    <div className={currentMode === 'Dark' ? 'dark' : ''}>
       <div className="flex relative dark:bg-main-dark-bg">
         <Routes>
           <Route path="/" element={<DashboardLayout />}>
@@ -59,6 +60,7 @@ const App = () => {
               path="/parking-information"
               element={<ParkingInformation />}
             />
+            <Route path="/tickets" element={<Tickets />} />
 
             {/* charts  */}
             <Route path="/line" element={<Line />} />

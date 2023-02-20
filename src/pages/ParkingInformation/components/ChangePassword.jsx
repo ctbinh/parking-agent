@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import { useForm } from "react-hook-form";
-import dayjs from "dayjs";
+import React, { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import dayjs from 'dayjs';
 
-import Input from "../../../components/Input/Input";
-import { Button } from "../../../components";
+import Input from '../../../components/Input/Input';
+import { Button } from '../../../components';
 
 function ChangePassword() {
   const {
@@ -34,14 +34,14 @@ function ChangePassword() {
             <Input
               classNameInput={`w-full rounded-lg border-2  px-3 py-2 outline-none focus:shadow-sm ${
                 errors.current_password
-                  ? "border-red-300 focus:border-red-500"
-                  : "border-gray-300 focus:border-orange-400"
+                  ? 'border-red-300 focus:border-red-500'
+                  : 'border-gray-300 focus:border-orange-400'
               }`}
               register={register}
               type="password"
               name="current_password"
               rules={{
-                required: "Bắt buộc",
+                required: 'Bắt buộc',
               }}
               errorMessage={errors.current_password?.message}
             />
@@ -56,14 +56,14 @@ function ChangePassword() {
             <Input
               classNameInput={`w-full rounded-lg border-2  px-3 py-2 outline-none focus:shadow-sm ${
                 errors.new_password
-                  ? "border-red-300 focus:border-red-500"
-                  : "border-gray-300 focus:border-orange-400"
+                  ? 'border-red-300 focus:border-red-500'
+                  : 'border-gray-300 focus:border-orange-400'
               }`}
               register={register}
               type="password"
               name="new_password"
               rules={{
-                required: "Bắt buộc",
+                required: 'Bắt buộc',
               }}
               errorMessage={errors.new_password?.message}
             />
@@ -78,14 +78,14 @@ function ChangePassword() {
             <Input
               classNameInput={`w-full rounded-lg border-2  px-3 py-2 outline-none focus:shadow-sm ${
                 errors.confirm_password
-                  ? "border-red-300 focus:border-red-500"
-                  : "border-gray-300 focus:border-orange-400"
+                  ? 'border-red-300 focus:border-red-500'
+                  : 'border-gray-300 focus:border-orange-400'
               }`}
               register={register}
               type="password"
               name="confirm_password"
               rules={{
-                required: "Bắt buộc",
+                required: 'Bắt buộc',
               }}
               errorMessage={errors.confirm_password?.message}
             />
