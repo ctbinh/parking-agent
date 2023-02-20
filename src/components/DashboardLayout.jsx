@@ -51,7 +51,7 @@ const DashboardLayout = ({ children }) => {
           {themeSettings && <ThemeSettings />}
           <Outlet />
         </div>
-        <Footer />
+        {/* <Footer /> */}
       </div>
     </>
   );

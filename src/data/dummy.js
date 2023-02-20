@@ -14,6 +14,7 @@ import {
   FiCreditCard,
   FiStar,
   FiShoppingCart,
+  FiLogOut,
 } from 'react-icons/fi';
 import {
   BsKanban,
@@ -25,7 +26,7 @@ import {
 } from 'react-icons/bs';
 import { BiColorFill } from 'react-icons/bi';
 import { IoMdContacts } from 'react-icons/io';
-import { RiContactsLine, RiStockLine } from 'react-icons/ri';
+import { RiContactsLine, RiParkingBoxLine, RiStockLine } from 'react-icons/ri';
 import { MdOutlineSupervisorAccount } from 'react-icons/md';
 import { HiOutlineRefresh } from 'react-icons/hi';
 import { TiTick } from 'react-icons/ti';
@@ -345,7 +346,12 @@ export const colorMappingData = [
 ];
 
 export const rangeColorMapping = [
-  { label: '1°C to 10°C', start: '1', end: '10', colors: colorMappingData[1] },
+  {
+    label: '1°C to 10°C',
+    start: '1',
+    end: '10',
+    colors: colorMappingData[1],
+  },
 
   {
     label: '11°C to 20°C',
@@ -514,26 +520,45 @@ export const links = [
     title: 'Dashboard',
     links: [
       {
-        name: 'ecommerce',
+        name: 'Dashboard',
+        path: 'dashboard',
         icon: <FiShoppingBag />,
       },
     ],
   },
 
   {
-    title: 'Pages',
+    title: 'Nhà xe',
     links: [
       {
+        name: 'Bãi đậu xe',
+        path: 'parking',
+        icon: <RiParkingBoxLine />,
+      },
+      {
+        name: 'Thông tin',
+        path: 'parking-information',
+        icon: <RiParkingBoxLine />,
+      },
+      {
         name: 'orders',
+        path: 'orders',
         icon: <AiOutlineShoppingCart />,
       },
       {
         name: 'employees',
+        path: 'employees',
         icon: <IoMdContacts />,
       },
       {
         name: 'customers',
+        path: 'customers',
         icon: <RiContactsLine />,
+      },
+      {
+        name: 'signout',
+        path: 'signout',
+        icon: <FiLogOut />,
       },
     ],
   },
@@ -542,14 +567,17 @@ export const links = [
     links: [
       {
         name: 'calendar',
+        path: 'calendar',
         icon: <AiOutlineCalendar />,
       },
       {
         name: 'kanban',
+        path: 'kanban',
         icon: <BsKanban />,
       },
       {
         name: 'editor',
+        path: 'editor',
         icon: <FiEdit />,
       },
       {
@@ -571,35 +599,43 @@ export const links = [
     links: [
       {
         name: 'line',
+        path: 'line',
         icon: <AiOutlineStock />,
       },
       {
         name: 'area',
+        path: 'area',
         icon: <AiOutlineAreaChart />,
       },
 
       {
         name: 'bar',
+        path: 'bar',
         icon: <AiOutlineBarChart />,
       },
       {
         name: 'pie',
+        path: 'pie',
         icon: <FiPieChart />,
       },
       {
         name: 'financial',
+        path: 'financial',
         icon: <RiStockLine />,
       },
       {
         name: 'color-mapping',
+        path: 'color-mapping',
         icon: <BsBarChart />,
       },
       {
         name: 'pyramid',
+        path: 'pyramid',
         icon: <GiLouvrePyramid />,
       },
       {
         name: 'stacked',
+        path: 'stacked',
         icon: <AiOutlineBarChart />,
       },
     ],

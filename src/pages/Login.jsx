@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from '../components';
-import ClickableText from '../components/ClickableText';
 import TextInput from '../components/TextInput';
 import { useStateContext } from '../contexts/ContextProvider';
 import { loginImage } from '../data';
@@ -8,10 +7,12 @@ import { loginImage } from '../data';
 const Login = () => {
   const { currentColor } = useStateContext();
   const login = () => {};
+  const [showPassword, setShowPassword] = useState(false);
   return (
     <div className="w-screen h-screen flex">
       <div
         className={`w-6/12 h-screen items-center flex justify-center bg-[${currentColor}]`}
+        style={{ backgroundColor: currentColor }}
       >
         <img src={loginImage} alt="login" />
       </div>
@@ -19,17 +20,33 @@ const Login = () => {
         <h1 className="text-center font-bold text-xl">Đăng nhập</h1>
         <div className="w-full">
           <TextInput fieldName={'Username'} />
-          <TextInput type={'password'} fieldName={'Password'} />
-          <ClickableText
-            onClick={() => {
-              console.log('hello');
-            }}
-            text={'Forgot password?'}
-            textAlign={'right'}
-            width={'full'}
-            styleCustom={'mb-4'}
-            color={'#50d71e'}
+          <TextInput
+            type={showPassword ? 'text' : 'password'}
+            fieldName={'Password'}
           />
+          <div className="flex text-sm font-medium">
+            <div class="flex items-start mb-6">
+              <div class="flex items-center h-5">
+                <input
+                  id="remember"
+                  type="checkbox"
+                  checked={showPassword}
+                  class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800"
+                  required
+                  onChange={() => setShowPassword(!showPassword)}
+                />
+              </div>
+              <label
+                for="remember"
+                class="ml-2 text-gray-900 dark:text-gray-300"
+              >
+                Show password
+              </label>
+            </div>
+            <label className="text-right ml-auto text-gray-400 cursor-pointer">
+              Forgot password?
+            </label>
+          </div>
         </div>
         <Button
           onClick={login}
