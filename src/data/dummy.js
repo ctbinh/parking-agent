@@ -541,6 +541,11 @@ export const links = [
         icon: <RiParkingBoxLine />,
       },
       {
+        name: 'Vé xe',
+        path: 'tickets',
+        icon: <RiParkingBoxLine />,
+      },
+      {
         name: 'orders',
         path: 'orders',
         icon: <AiOutlineShoppingCart />,
@@ -582,14 +587,6 @@ export const links = [
       },
       {
         name: 'color-picker',
-        icon: <BiColorFill />,
-      },
-      {
-        name: 'parking-information',
-        icon: <BiColorFill />,
-      },
-      {
-        name: 'tickets',
         icon: <BiColorFill />,
       },
     ],

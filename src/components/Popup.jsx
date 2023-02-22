@@ -11,20 +11,22 @@ const Popup = ({ children, header, width }) => {
   }
 
   return (
-    <div className="App" id="dialog-target">
-      <DialogComponent
-        width={width}
-        isModal={true}
-        target="#dialog-target"
-        header={header}
-        showCloseIcon={true}
-        visible={showPopup}
-        close={closePopup}
-        overlayClick={onOverlayClick}
-      >
-        {children ?? 'abc'}
-      </DialogComponent>
-    </div>
+    <>
+      <div className="App" id="dialog-target">
+        <DialogComponent
+          width={width}
+          isModal={true}
+          target="#dialog-target"
+          header={header}
+          showCloseIcon={true}
+          visible={showPopup}
+          close={closePopup}
+          overlayClick={onOverlayClick}
+        >
+          {children ?? 'abc'}
+        </DialogComponent>
+      </div>
+    </>
   );
 };
 
