@@ -1,5 +1,6 @@
 import React from 'react';
 import { LineChart, Stacked } from '../components';
+import ColorMappingChart from '../components/Charts/ColorMappingChart';
 import DropDown from '../components/DropDown';
 import { useStateContext } from '../contexts/ContextProvider';
 import { earningData } from '../data/dummy';
@@ -35,20 +36,26 @@ const Dashboard = () => {
       <div className="flex flex-row">
         <div className="w-1/2 m-2 p-2 border-1 rounded-md">
           <div className="flex justify-between items-center gap-2 mb-4">
-            <p className="text-xl font-semibold">Sales Overview</p>
+            <p className="text-xl font-semibold">Doanh thu</p>
             <DropDown currentMode={currentMode} />
           </div>
-          <div className="md:w-full overflow-auto">
-            <LineChart />
-          </div>
+          <LineChart id="revenue" />
         </div>
         <div className="flex-1 m-2 p-2 border-1 rounded-md">
           <div className="flex justify-between items-center gap-2 mb-4">
-            <p className="text-xl font-semibold">Sales Overview</p>
+            <p className="text-xl font-semibold">Lượng khách ra vào</p>
             <DropDown currentMode={currentMode} />
           </div>
-          <Stacked currentMode={currentMode} width="100%" height="400px" />
+          <LineChart id="customers" />
         </div>
+      </div>
+
+      <div className="flex-1 m-2 p-2 border-1 rounded-md">
+        <div className="flex justify-between items-center gap-2 mb-4">
+          <p className="text-xl font-semibold">Giờ đông khách</p>
+          <DropDown currentMode={currentMode} />
+        </div>
+        <ColorMappingChart />
       </div>
     </div>
   );

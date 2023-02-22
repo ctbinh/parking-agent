@@ -17,12 +17,12 @@ import {
 } from '../../data/dummy';
 import { useStateContext } from '../../contexts/ContextProvider';
 
-const LineChart = () => {
+const LineChart = ({ id }) => {
   const { currentMode } = useStateContext();
 
   return (
     <ChartComponent
-      id="line-chart"
+      id={`line-chart-${id}`}
       height="400px"
       primaryXAxis={LinePrimaryXAxis}
       primaryYAxis={LinePrimaryYAxis}

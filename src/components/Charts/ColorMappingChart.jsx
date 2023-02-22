@@ -25,7 +25,7 @@ const ColorMappingChart = ({ width, height }) => {
   return (
     <div className="w-full">
       <ChartComponent
-        id="charts"
+        id="charts-color-mapping"
         primaryXAxis={ColorMappingPrimaryXAxis}
         primaryYAxis={ColorMappingPrimaryYAxis}
         width={width}
