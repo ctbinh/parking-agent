@@ -17,7 +17,7 @@ function TicketItem({ openModal, isOpenModal }) {
 
   return (
     <>
-      <div className="w-full bg-gradient-to-b from-cyan-300 to-cyan-500 py-2 ">
+      <div className="w-full bg-gradient-to-r from-[#134E5E] to-[#71B280] py-2 text-white">
         <div className="flex items-center justify-between border-b border-dashed border-b-gray-600 pb-4 pt-2 px-4">
           <div className="flex items-center">
             <ImTicket className="text-xl text-orange-500" />

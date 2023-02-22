@@ -12,7 +12,7 @@ function Tickets() {
             <Button
               onClick={() => {}}
               text="+ Tạo vé"
-              className="bg-orange-400 text-white text-xs w-20 rounded-lg hover:bg-orange-400/80"
+              className="bg-gradient-to-r from-[#134E5E] to-[#71B280] text-white text-xs w-20 rounded-lg hover:bg-orange-400/80"
             />
           </div>
         </div>
