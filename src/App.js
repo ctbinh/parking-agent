@@ -27,6 +27,8 @@ import ParkingInformation from './pages/ParkingInformation/ParkingInformation';
 import Tickets from './pages/Ticket/Tickets';
 import ParkingHistory from './pages/ParkingHistory/ParkingHistory';
 import Dashboard from './pages/Dashboard';
+import ErrorPage from './pages/404';
+import NotFound from './pages/404';
 
 const App = () => {
   const { setCurrentColor, setCurrentMode, currentMode } = useStateContext();
@@ -48,34 +50,14 @@ const App = () => {
             <Route path="/" element={<Ecommerce />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/parking" element={<ParkingHistory />} />
-
-            {/* pages  */}
-            <Route path="/orders" element={<Orders />} />
-            <Route path="/employees" element={<Employees />} />
-            <Route path="/customers" element={<Customers />} />
-
-            {/* apps  */}
-            <Route path="/kanban" element={<Kanban />} />
-            <Route path="/editor" element={<Editor />} />
-            <Route path="/calendar" element={<Calendar />} />
-            <Route path="/color-picker" element={<ColorPicker />} />
             <Route
               path="/parking-information"
               element={<ParkingInformation />}
             />
             <Route path="/tickets" element={<Tickets />} />
-
-            {/* charts  */}
-            <Route path="/line" element={<Line />} />
-            <Route path="/area" element={<Area />} />
-            <Route path="/bar" element={<Bar />} />
-            <Route path="/pie" element={<Pie />} />
-            <Route path="/financial" element={<Financial />} />
-            <Route path="/color-mapping" element={<ColorMapping />} />
-            <Route path="/pyramid" element={<Pyramid />} />
-            <Route path="/stacked" element={<Stacked />} />
           </Route>
           <Route path="/login" element={<Login />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
     </div>
