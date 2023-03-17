@@ -3,31 +3,12 @@ import { Route, Routes } from 'react-router-dom';
 import './App.css';
 
 import { useStateContext } from './contexts/ContextProvider';
-import {
-  Ecommerce,
-  Orders,
-  Calendar,
-  Employees,
-  Stacked,
-  Pyramid,
-  Customers,
-  Kanban,
-  Line,
-  Area,
-  Bar,
-  Pie,
-  Financial,
-  ColorPicker,
-  ColorMapping,
-  Editor,
-  Login,
-} from './pages';
+import { Ecommerce, Login } from './pages';
 import DashboardLayout from './components/DashboardLayout';
 import ParkingInformation from './pages/ParkingInformation/ParkingInformation';
 import Tickets from './pages/Ticket/Tickets';
 import ParkingHistory from './pages/ParkingHistory/ParkingHistory';
 import Dashboard from './pages/Dashboard';
-import ErrorPage from './pages/404';
 import NotFound from './pages/404';
 
 const App = () => {

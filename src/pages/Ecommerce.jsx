@@ -57,6 +57,9 @@ const Ecommerce = () => {
               bgColor={currentColor}
               text="Download"
               borderRadius="10px"
+              onClick={() => {
+                console.log('hello');
+              }}
             />
           </div>
         </div>
