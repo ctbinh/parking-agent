@@ -91,7 +91,10 @@ function EditForm() {
                   id="timepicker"
                   style={{ textAlign: 'center' }}
                   value={startTime}
-                  onChange={(event) => setStartTime(event.value)}
+                  onChange={(event) => {
+                    console.log('start', event.value);
+                    setStartTime(event.value);
+                  }}
                   step={15}
                   format={'HH:mm'}
                 />

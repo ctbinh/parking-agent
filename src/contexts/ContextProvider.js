@@ -17,6 +17,15 @@ export const ContextProvider = ({ children }) => {
   const [activeMenu, setActiveMenu] = useState(true);
   const [isClicked, setIsClicked] = useState(initialState);
   const [showPopup, setShowPopup] = useState(false);
+  const [authenticated, setAuthenticated] = useState(false);
+
+  const setLogin = () => {
+    console.log('go');
+    setAuthenticated(true);
+  };
+  const setLogout = () => {
+    setAuthenticated(false);
+  };
 
   const setMode = (e) => {
     setCurrentMode(e.target.value);
@@ -42,6 +51,9 @@ export const ContextProvider = ({ children }) => {
     // eslint-disable-next-line react/jsx-no-constructed-context-values
     <StateContext.Provider
       value={{
+        authenticated,
+        setLogin,
+        setLogout,
         currentColor,
         currentMode,
         activeMenu,

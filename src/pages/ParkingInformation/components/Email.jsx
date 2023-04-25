@@ -4,7 +4,7 @@ import { Controller, useForm } from 'react-hook-form';
 import Input from '../../../components/Input/Input';
 import { Button } from '../../../components';
 
-function Email() {
+function Email({ locationInformation }) {
   const {
     register,
     handleSubmit,
@@ -13,7 +13,7 @@ function Email() {
     setError,
     control,
     formState: { errors },
-  } = useForm();
+  } = useForm({ defaultValues: { email: locationInformation.email } });
 
   const onSubmit = handleSubmit(async (data) => {
     console.log(data);

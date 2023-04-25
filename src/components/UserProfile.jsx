@@ -5,9 +5,17 @@ import { Button } from '.';
 import { userProfileData } from '../data/dummy';
 import { useStateContext } from '../contexts/ContextProvider';
 import avatar from '../data/avatar.jpg';
+import { authentication } from '../utils/authentication';
+import { useNavigate } from 'react-router-dom';
 
 const UserProfile = () => {
-  const { currentColor } = useStateContext();
+  const { currentColor, setLogout } = useStateContext();
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    navigate('/login');
+    authentication.deleteLoginLocalStorage();
+    setLogout();
+  };
 
   return (
     <div className="nav-item absolute right-1 top-16 bg-white dark:bg-[#42464D] p-8 rounded-lg w-96">
@@ -73,6 +81,7 @@ const UserProfile = () => {
           text="Logout"
           borderRadius="10px"
           width="full"
+          onClick={handleLogout}
         />
       </div>
     </div>

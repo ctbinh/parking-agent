@@ -13,14 +13,40 @@ import { DateTimePickerComponent } from '@syncfusion/ej2-react-calendars';
 import { Button } from '../../components';
 import { parkedsGrid, parkingsData } from '../../utils/tableFormat';
 import { useStateContext } from '../../contexts/ContextProvider';
+import locationApi from '../../apis/location.api';
+import { useQuery } from '@tanstack/react-query';
 
 const ListParked = () => {
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
+  const [filterDate, setFilterDate] = useState();
   const { currentColor } = useStateContext();
   const editing = { allowDeleting: false, allowEditing: false };
   const toolbarOptions = ['Search'];
-  const onFilter = () => {};
+  const {
+    data: parkedVehicles,
+    isLoading,
+    refetch,
+  } = useQuery({
+    queryKey: ['parkedVehicles', filterDate],
+    queryFn: () => {
+      return locationApi.getParkedVehicles(filterDate);
+    },
+    keepPreviousData: true,
+    staleTime: 3 * 60 * 1000,
+    select: (data) => {
+      const tmp = [...data?.data?.data];
+      return tmp.map((item) => ({
+        ...item,
+        entryTime: new Date(item.entryTime),
+        exitTime: new Date(item.exitTime),
+      }));
+    },
+  });
+  const onFilter = () => {
+    setFilterDate({ from: startDate, to: endDate });
+    refetch();
+  };
   return (
     <>
       <div className="flex flex-row justify-end items-center my-1">
@@ -31,7 +57,10 @@ const ListParked = () => {
             style={{ textAlign: 'center' }}
             placeholder={'--/--/---- --:-- --'}
             value={startDate}
-            onChange={(e) => setStartDate(e.value)}
+            onChange={(e) => {
+              console.log('e.value', e.value);
+              setStartDate(e.value);
+            }}
           />
         </div>
         <label className="text-sm">đến: </label>
@@ -54,7 +83,7 @@ const ListParked = () => {
         />
       </div>
       <GridComponent
-        dataSource={parkingsData}
+        dataSource={parkedVehicles}
         width="auto"
         allowPaging
         allowSorting

@@ -2,12 +2,11 @@ import { TimePicker } from 'antd';
 import React, { useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import dayjs from 'dayjs';
-
 import Input from '../../../components/Input/Input';
 import InputNumber from '../../../components/Input/InputNumber';
 import { Button } from '../../../components';
 
-function Parking() {
+function Parking({ locationInformation }) {
   const {
     register,
     handleSubmit,
@@ -16,18 +15,28 @@ function Parking() {
     setError,
     control,
     formState: { errors },
-  } = useForm();
+  } = useForm({
+    defaultValues: {
+      name: locationInformation.name,
+      address: locationInformation.address,
+      phone: locationInformation.phoneNumber,
+    },
+  });
   const format = 'HH:mm';
 
-  const [valueTime, setValueTime] = useState(null);
+  const [timeStart, setTimeStart] = useState(
+    dayjs(locationInformation.timeStart, format)
+  );
+  const [timeEnd, setTimeEnd] = useState(
+    dayjs(locationInformation.timeEnd, format)
+  );
   const onChangeTime = (time) => {
-    console.log('changed');
-    setValueTime(time);
+    setTimeStart(time);
   };
 
   const onSubmit = handleSubmit(async (data) => {
     console.log(data);
-    console.log(valueTime);
+    console.log(timeStart.$H, timeStart.$m);
   });
 
   return (
@@ -106,12 +115,12 @@ function Parking() {
               <span className="mr-3">Từ</span>
               <div>
                 <TimePicker
-                  value={valueTime}
+                  value={timeStart}
                   format={format}
                   onChange={onChangeTime}
                   onSelect={(value) => {
                     console.log('select', value);
-                    setValueTime(value);
+                    setTimeStart(value);
                   }}
                   className=" border-gray-300 hover:border-orange-400 shadow-sm "
                 />
@@ -119,12 +128,12 @@ function Parking() {
               <span className="mx-3">Đến</span>
               <div>
                 <TimePicker
-                  value={valueTime}
+                  value={timeEnd}
                   format={format}
                   onChange={onChangeTime}
                   onSelect={(value) => {
                     console.log('select', value);
-                    setValueTime(value);
+                    setTimeEnd(value);
                   }}
                   className=" border-gray-300 hover:border-orange-400 shadow-sm "
                 />

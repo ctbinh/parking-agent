@@ -13,14 +13,41 @@ import { DateTimePickerComponent } from '@syncfusion/ej2-react-calendars';
 import { Button } from '../../components';
 import { parkingsData, parkingsGrid } from '../../utils/tableFormat';
 import { useStateContext } from '../../contexts/ContextProvider';
-
+import { useQuery } from '@tanstack/react-query';
+import locationApi from '../../apis/location.api';
 const ListParking = () => {
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
+  const [filterDate, setFilterDate] = useState();
   const { currentColor } = useStateContext();
   const editing = { allowDeleting: false, allowEditing: false };
   const toolbarOptions = ['Search'];
-  const onFilter = () => {};
+
+  const {
+    data: parkingVehicles,
+    isLoading,
+    refetch,
+  } = useQuery({
+    queryKey: ['parkingVehicles', filterDate],
+    queryFn: () => {
+      return locationApi.getVehicles(filterDate);
+    },
+    keepPreviousData: true,
+    staleTime: 3 * 60 * 1000,
+    select: (data) => {
+      const tmp = [...data?.data?.data];
+      return tmp.map((item) => ({
+        ...item,
+        entryTime: new Date(item.entryTime),
+      }));
+    },
+  });
+  const onFilter = () => {
+    setFilterDate({ from: startDate, to: endDate });
+    refetch();
+  };
+  // if (!isLoading) console.log('parkingVehicles', parkingVehicles);
+
   return (
     <>
       <div className="flex flex-row justify-end items-center my-1">
@@ -31,7 +58,10 @@ const ListParking = () => {
             style={{ textAlign: 'center' }}
             placeholder={'--/--/---- --:-- --'}
             value={startDate}
-            onChange={(e) => setStartDate(e.value)}
+            onChange={(e) => {
+              console.log('e.value', e.value);
+              setStartDate(e.value);
+            }}
           />
         </div>
         <label className="text-sm">đến: </label>
@@ -54,7 +84,7 @@ const ListParking = () => {
         />
       </div>
       <GridComponent
-        dataSource={parkingsData}
+        dataSource={parkingVehicles}
         width="auto"
         allowPaging
         allowSorting

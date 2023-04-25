@@ -8,7 +8,7 @@ const GridParkingUser = (props) => {
   return (
     <TooltipComponent content="Xem thông tin người dùng">
       <div onClick={displayPopup} className="text-green-500 cursor-pointer">
-        {props.user.fullname}
+        {props.user.fullName}
       </div>
     </TooltipComponent>
   );
@@ -16,67 +16,67 @@ const GridParkingUser = (props) => {
 
 export const parkingsGrid = [
   {
-    field: 'license_plate',
+    field: 'license_plates',
     headerText: 'Biển số',
     width: '150',
     textAlign: 'Center',
   },
   {
-    field: 'user.fullname',
+    field: 'user.fullName',
     headerText: 'Tên',
     width: '150',
     textAlign: 'Center',
     template: GridParkingUser,
   },
   {
-    field: 'entry_time',
+    field: 'entryTime',
     headerText: 'Thời gian vào',
     width: '150',
     format: 'dd/MM/yyyy hh:mm',
     textAlign: 'Center',
   },
   {
+    field: 'totalTime',
     headerText: 'Tổng thời gian',
     width: '120',
     textAlign: 'Center',
-    template: GridParkingTotalTime,
   },
   { field: 'fee', headerText: 'Phí', width: '120', textAlign: 'Center' },
 ];
 
 export const parkedsGrid = [
   {
-    field: 'license_plate',
+    field: 'license_plates',
     headerText: 'Biển số',
     width: '150',
     textAlign: 'Center',
   },
   {
-    field: 'user.fullname',
+    field: 'user.fullName',
     headerText: 'Tên',
     width: '150',
     textAlign: 'Center',
     template: GridParkingUser,
   },
   {
-    field: 'entry_time',
+    field: 'entryTime',
     headerText: 'Thời gian vào',
     width: '150',
     format: 'dd/MM/yyyy hh:mm',
     textAlign: 'Center',
   },
   {
-    field: 'exit_time',
+    field: 'exitTime',
     headerText: 'Thời gian ra',
     width: '150',
     format: 'dd/MM/yyyy hh:mm',
     textAlign: 'Center',
   },
   {
+    field: 'totalTime',
     headerText: 'Tổng thời gian',
     width: '120',
     textAlign: 'Center',
-    template: GridParkingTotalTime,
   },
   { field: 'fee', headerText: 'Phí', width: '120', textAlign: 'Center' },
 ];
@@ -97,7 +97,7 @@ export const parkingsData = [
   {
     parking_id: 2,
     license_plate: '60 - B6 75901',
-    entry_time: new Date('01/01/2023'),
+    entry_time: new Date('2023-04-18T10:30:00.000Z'),
     exit_time: new Date('01/01/2023'),
     fee: 4000,
     user: {

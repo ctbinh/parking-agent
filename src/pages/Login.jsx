@@ -1,13 +1,34 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button } from '../components';
 import TextInput from '../components/TextInput';
 import { useStateContext } from '../contexts/ContextProvider';
 import { loginImage } from '../data';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { authentication } from '../utils/authentication';
 
 const Login = () => {
-  const { currentColor } = useStateContext();
-  const login = () => {};
+  const { currentColor, setLogin, authenticated } = useStateContext();
+  const location = useLocation();
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
+
+  const navigate = useNavigate();
+  const login = () => {
+    if (username === 'admin' && password === 'admin') {
+      console.log('Login successfully!');
+      authentication.saveLoginLocalStorage();
+      setLogin();
+      navigate('/dashboard');
+    }
+  };
+  useEffect(() => {
+    if (authentication.getLoginLocalStorage()) {
+      navigate('/dashboard');
+    } else {
+      navigate('/login');
+    }
+  }, []);
   return (
     <div className="w-screen h-screen flex">
       <div
@@ -19,10 +40,16 @@ const Login = () => {
       <div className="flex-1 flex flex-col items-center justify-evenly py-28 px-14">
         <h1 className="text-center font-bold text-xl">Đăng nhập</h1>
         <div className="w-full">
-          <TextInput fieldName={'Username'} />
+          <TextInput
+            fieldName={'Username'}
+            value={username}
+            handleChange={setUsername}
+          />
           <TextInput
             type={showPassword ? 'text' : 'password'}
             fieldName={'Password'}
+            value={password}
+            handleChange={setPassword}
           />
           <div className="flex text-sm font-medium">
             <div class="flex items-start mb-6">
@@ -38,7 +65,7 @@ const Login = () => {
               </div>
               <label
                 for="remember"
-                class="ml-2 text-gray-900 dark:text-gray-300"
+                className="ml-2 text-gray-900 dark:text-gray-300"
               >
                 Show password
               </label>
