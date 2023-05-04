@@ -4,7 +4,6 @@ import { BsThreeDotsVertical } from 'react-icons/bs';
 import { AiOutlineEdit, AiOutlineDelete } from 'react-icons/ai';
 
 import { Popover } from 'antd';
-import EditModal from './EditModal';
 
 function TicketItem({ openModal, isOpenModal }) {
   const [openDialog, setOpenopenDialog] = useState(false);

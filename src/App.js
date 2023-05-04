@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Route, Routes, Navigate } from 'react-router-dom';
 import './App.css';
 
 import { useStateContext } from './contexts/ContextProvider';
-import { Ecommerce, Login } from './pages';
+import { Login } from './pages';
 import DashboardLayout from './components/DashboardLayout';
 import ParkingInformation from './pages/ParkingInformation/ParkingInformation';
 import Tickets from './pages/Ticket/Tickets';
@@ -44,8 +44,7 @@ const App = () => {
               </PrivateRoute>
             }
           >
-            <Route path="/" element={<Ecommerce />} />
-            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/" element={<Dashboard />} />
             <Route path="/parking" element={<ParkingHistory />} />
             <Route
               path="/parking-information"

@@ -1,6 +1,5 @@
 import { httpClient } from '../https/https';
 
-const backendUrl = process.env.BACKEND_URL;
 const URL = '/admin/parking';
 const locationApi = {
   getLocation() {

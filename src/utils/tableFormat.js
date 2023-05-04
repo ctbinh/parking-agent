@@ -2,7 +2,6 @@ import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 import React from 'react';
 import { useStateContext } from '../contexts/ContextProvider';
 
-const GridParkingTotalTime = () => <div>12</div>;
 const GridParkingUser = (props) => {
   const { displayPopup } = useStateContext();
   return (
