@@ -1,7 +1,6 @@
 import React from 'react';
 import { earningData } from '../../data/dummy';
-import {
-} from '../../constants/charts';
+import {} from '../../constants/charts';
 import CustomerChart from './CustomerChart';
 import RevenueChart from './RevenueChart';
 import TimeChart from './TimeChart';

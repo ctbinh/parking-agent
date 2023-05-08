@@ -3,7 +3,10 @@ import DropDown from '../../components/DropDown';
 import { DROP_DOWN_TIME_CHART } from '../../constants/dashboard';
 import { useStateContext } from '../../contexts/ContextProvider';
 import ColorMappingChart from '../../components/Charts/ColorMappingChart';
-import { XAxisTimeColumnChart, YAxisTimeColumnChart } from '../../constants/charts';
+import {
+  XAxisTimeColumnChart,
+  YAxisTimeColumnChart,
+} from '../../constants/charts';
 import { colorMappingData } from '../../data/dummy';
 
 const TimeChart = () => {

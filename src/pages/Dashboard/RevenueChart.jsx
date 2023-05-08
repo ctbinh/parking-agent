@@ -13,15 +13,15 @@ const RevenueChart = () => {
   const [data, setData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const changeFilterType = (value) => {
-    setFilterType(value)
+    setFilterType(value);
     setFilteredData(filterDateTimeData(data, value));
-  }
+  };
 
   useEffect(() => {
     setData(lineChartData[0]);
     setFilteredData(lineChartData[0]);
   }, []);
-  
+
   return (
     <>
       <div className="flex justify-between items-center gap-2 mb-4">
