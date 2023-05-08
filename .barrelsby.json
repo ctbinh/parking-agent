@@ -1,0 +1,14 @@
+{
+    "directory": [
+        "./src/constants",
+        "./src/components",
+        "./src/pages"
+    ],
+    "exclude": [
+        "__mock__",
+        "__mocks__",
+        ".spec.ts",
+        ".test.ts"
+    ],
+    "delete": true
+}

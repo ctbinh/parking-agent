@@ -19,16 +19,16 @@ const Login = () => {
       console.log('Login successfully!');
       authentication.saveLoginLocalStorage();
       setLogin();
-      navigate('/dashboard');
+      navigate('/');
     }
   };
   useEffect(() => {
     if (authentication.getLoginLocalStorage()) {
-      navigate('/dashboard');
+      navigate('/');
     } else {
       navigate('/login');
     }
-  }, []);
+  }, [navigate]);
   return (
     <div className="w-screen h-screen flex">
       <div

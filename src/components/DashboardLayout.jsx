@@ -2,7 +2,6 @@ import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 import React, { useEffect } from 'react';
 import { FiSettings } from 'react-icons/fi';
 import { Outlet } from 'react-router-dom';
-import { Footer } from '.';
 import { useStateContext } from '../contexts/ContextProvider';
 import Navbar from './Navbar';
 import Sidebar from './Sidebar';
@@ -51,7 +50,6 @@ const DashboardLayout = ({ children }) => {
           {themeSettings && <ThemeSettings />}
           <Outlet />
         </div>
-        {/* <Footer /> */}
       </div>
     </>
   );

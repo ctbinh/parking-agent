@@ -9,15 +9,9 @@ import {
   Legend,
   Tooltip,
 } from '@syncfusion/ej2-react-charts';
-
-import {
-  lineCustomSeries,
-  LinePrimaryXAxis,
-  LinePrimaryYAxis,
-} from '../../data/dummy';
 import { useStateContext } from '../../contexts/ContextProvider';
 
-const LineChart = ({ id }) => {
+const LineChart = ({ id, LinePrimaryXAxis, LinePrimaryYAxis, data }) => {
   const { currentMode } = useStateContext();
 
   return (
@@ -33,10 +27,13 @@ const LineChart = ({ id }) => {
     >
       <Inject services={[LineSeries, DateTime, Legend, Tooltip]} />
       <SeriesCollectionDirective>
-        {/* eslint-disable-next-line react/jsx-props-no-spreading */}
-        {lineCustomSeries.map((item, index) => (
-          <SeriesDirective key={index} {...item} />
-        ))}
+        <SeriesDirective
+          dataSource={data}
+          xName="x"
+          yName="y"
+          type="Line"
+          marker={{ visible: true, width: 2, height: 2 }}
+        />
       </SeriesCollectionDirective>
     </ChartComponent>
   );

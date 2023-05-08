@@ -17,18 +17,18 @@ function Parking({ locationInformation }) {
     formState: { errors },
   } = useForm({
     defaultValues: {
-      name: locationInformation.name,
-      address: locationInformation.address,
-      phone: locationInformation.phoneNumber,
+      name: locationInformation?.name,
+      address: locationInformation?.address,
+      phone: locationInformation?.phoneNumber,
     },
   });
   const format = 'HH:mm';
 
   const [timeStart, setTimeStart] = useState(
-    dayjs(locationInformation.timeStart, format)
+    dayjs(locationInformation?.timeStart, format)
   );
   const [timeEnd, setTimeEnd] = useState(
-    dayjs(locationInformation.timeEnd, format)
+    dayjs(locationInformation?.timeEnd, format)
   );
   const onChangeTime = (time) => {
     setTimeStart(time);

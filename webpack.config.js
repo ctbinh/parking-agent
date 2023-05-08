@@ -1,6 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const InterpolateHtmlPlugin = require('interpolate-html-plugin');
 const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
   entry: './src/index.js',
@@ -18,6 +19,9 @@ module.exports = {
       manifest: './public/manifest.json',
     }),
     new InterpolateHtmlPlugin({ PUBLIC_URL: '' }),
+    new webpack.ProvidePlugin({
+      process: 'process/browser',
+    }),
   ],
   devServer: {
     host: '0.0.0.0',

@@ -8,7 +8,7 @@ import DashboardLayout from './components/DashboardLayout';
 import ParkingInformation from './pages/ParkingInformation/ParkingInformation';
 import Tickets from './pages/Ticket/Tickets';
 import ParkingHistory from './pages/ParkingHistory/ParkingHistory';
-import Dashboard from './pages/Dashboard';
+import Dashboard from './pages/Dashboard/Dashboard';
 import NotFound from './pages/404';
 import { authentication } from './utils/authentication';
 

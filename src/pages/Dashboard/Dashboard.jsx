@@ -1,13 +1,12 @@
 import React from 'react';
-import { LineChart, Stacked } from '../components';
-import ColorMappingChart from '../components/Charts/ColorMappingChart';
-import DropDown from '../components/DropDown';
-import { useStateContext } from '../contexts/ContextProvider';
-import { earningData } from '../data/dummy';
+import { earningData } from '../../data/dummy';
+import {
+} from '../../constants/charts';
+import CustomerChart from './CustomerChart';
+import RevenueChart from './RevenueChart';
+import TimeChart from './TimeChart';
 
 const Dashboard = () => {
-  const { currentMode } = useStateContext();
-
   return (
     <div className="p-4 mx-6 bg-white rounded-lg h-full dark:bg-secondary-dark-bg dark:text-gray-200">
       <div className="flex flex-wrap justify-between gap-4 items-center m-2">
@@ -35,27 +34,15 @@ const Dashboard = () => {
       </div>
       <div className="flex flex-row">
         <div className="w-1/2 m-2 p-2 border-1 rounded-md">
-          <div className="flex justify-between items-center gap-2 mb-4">
-            <p className="text-xl font-semibold">Doanh thu</p>
-            <DropDown currentMode={currentMode} />
-          </div>
-          <LineChart id="revenue" />
+          <RevenueChart />
         </div>
         <div className="flex-1 m-2 p-2 border-1 rounded-md">
-          <div className="flex justify-between items-center gap-2 mb-4">
-            <p className="text-xl font-semibold">Lượng khách ra vào</p>
-            <DropDown currentMode={currentMode} />
-          </div>
-          <LineChart id="customers" />
+          <CustomerChart />
         </div>
       </div>
 
       <div className="flex-1 m-2 p-2 border-1 rounded-md">
-        <div className="flex justify-between items-center gap-2 mb-4">
-          <p className="text-xl font-semibold">Giờ đông khách</p>
-          <DropDown currentMode={currentMode} />
-        </div>
-        <ColorMappingChart />
+        <TimeChart />
       </div>
     </div>
   );

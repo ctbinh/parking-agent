@@ -13,7 +13,7 @@ function Email({ locationInformation }) {
     setError,
     control,
     formState: { errors },
-  } = useForm({ defaultValues: { email: locationInformation.email } });
+  } = useForm({ defaultValues: { email: locationInformation?.email } });
 
   const onSubmit = handleSubmit(async (data) => {
     console.log(data);
