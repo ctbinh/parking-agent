@@ -1,5 +1,3 @@
-export const DROP_DOWN_REVENUE_CHART = ['Tuần', 'Tháng', 'Năm'];
-export const DROP_DOWN_CUSTOMER_CHART = ['Tuần', 'Tháng', 'Năm'];
 export const DROP_DOWN_TIME_CHART = [
   'Thứ 2',
   'Thứ 3',

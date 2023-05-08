@@ -3,17 +3,17 @@ export const filterDateTimeData = (data, type) => {
   const filteredData = data.filter((datum) => {
     const datumDate = new Date(datum.x);
     switch (type) {
-      case 'Tuần':
+      case 'week':
         const weekStart = new Date(
           today.getFullYear(),
           today.getMonth(),
           today.getDate() - today.getDay()
         );
         return datumDate >= weekStart;
-      case 'Tháng':
+      case 'month':
         const monthStart = new Date(today.getFullYear(), today.getMonth(), 1);
         return datumDate >= monthStart;
-      case 'Năm':
+      case 'year':
         const yearStart = new Date(today.getFullYear(), 0, 1);
         return datumDate >= yearStart;
       default:

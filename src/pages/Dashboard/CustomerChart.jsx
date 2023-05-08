@@ -1,21 +1,28 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import DropDown from '../../components/DropDown';
 import { useStateContext } from '../../contexts/ContextProvider';
-import { DROP_DOWN_CUSTOMER_CHART } from '../../constants/dashboard';
 import { LineChart } from '../../components';
-import { XAxisRevenueChart, YAxisRevenueChart } from '../../constants/charts';
+import {
+  XAxisLineChartSetting,
+  YAxisRevenueChart,
+} from '../../constants/charts';
 import { lineChartData } from '../../data/dummy';
 import { filterDateTimeData } from '../../utils/helpingFunction';
 
 const CustomerChart = () => {
   const { currentMode } = useStateContext();
-  const [filterType, setFilterType] = useState(DROP_DOWN_CUSTOMER_CHART[0]);
-  const [data, setData] = useState(lineChartData[0]);
-  const [filteredData, setFilteredData] = useState(lineChartData[0]);
+  const [filterType, setFilterType] = useState(
+    JSON.parse(localStorage.getItem('filterTypeCustomerChart')) ?? XAxisLineChartSetting[0]
+  );
+  const data = lineChartData[0];
   const changeFilterType = (value) => {
+    localStorage.setItem('filterTypeCustomerChart', JSON.stringify(value));
     setFilterType(value);
-    setFilteredData(filterDateTimeData(data, value));
   };
+  const filteredData = useMemo(
+    () => filterDateTimeData(data, filterType.key),
+    [data, filterType]
+  );
 
   return (
     <>
@@ -23,14 +30,14 @@ const CustomerChart = () => {
         <p className="text-xl font-semibold">Lượng khách ra vào</p>
         <DropDown
           currentMode={currentMode}
-          dropdownData={DROP_DOWN_CUSTOMER_CHART}
-          value={filterType}
+          dropdownData={XAxisLineChartSetting}
+          value={filterType.key}
           onChange={changeFilterType}
         />
       </div>
       <LineChart
         id="customers"
-        LinePrimaryXAxis={XAxisRevenueChart}
+        LinePrimaryXAxis={filterType.setting}
         LinePrimaryYAxis={YAxisRevenueChart}
         data={filteredData}
       />

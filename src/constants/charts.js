@@ -1,15 +1,47 @@
-export const XAxisRevenueChart = {
-  valueType: 'DateTime',
-  labelFormat: 'dd-MMM',
-  intervalType: 'Days',
-  edgeLabelPlacement: 'Shift',
-  majorGridLines: { width: 0 },
-  background: 'white',
-  interval: 10,
-};
+export const XAxisLineChartSetting = [
+  {
+    key: 'week',
+    title: 'Tuần',
+    setting: {
+      valueType: 'DateTime',
+      labelFormat: 'dd-MMM',
+      intervalType: 'Days',
+      edgeLabelPlacement: 'Shift',
+      majorGridLines: { width: 0 },
+      background: 'white',
+      interval: 1,
+    },
+  },
+  {
+    key: 'month',
+    title: 'Tháng',
+    setting: {
+      valueType: 'DateTime',
+      labelFormat: 'dd-MMM',
+      intervalType: 'Days',
+      edgeLabelPlacement: 'Shift',
+      majorGridLines: { width: 0 },
+      background: 'white',
+      interval: 3,
+    },
+  },
+  {
+    key: 'year',
+    title: 'Năm',
+    setting: {
+      valueType: 'DateTime',
+      labelFormat: 'MMMM',
+      intervalType: 'Months',
+      edgeLabelPlacement: 'Shift',
+      majorGridLines: { width: 0 },
+      background: 'white',
+      interval: 1,
+    },
+  },
+];
 
 export const YAxisRevenueChart = {
-  labelFormat: '{value}%',
+  labelFormat: '{value}k',
   rangePadding: 'None',
   minimum: 0,
   maximum: 100,
