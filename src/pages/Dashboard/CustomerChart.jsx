@@ -12,7 +12,8 @@ import { filterDateTimeData } from '../../utils/helpingFunction';
 const CustomerChart = () => {
   const { currentMode } = useStateContext();
   const [filterType, setFilterType] = useState(
-    JSON.parse(localStorage.getItem('filterTypeCustomerChart')) ?? XAxisLineChartSetting[0]
+    JSON.parse(localStorage.getItem('filterTypeCustomerChart')) ??
+      XAxisLineChartSetting[0]
   );
   const data = lineChartData[0];
   const changeFilterType = (value) => {

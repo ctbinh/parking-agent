@@ -2,14 +2,18 @@ import React, { useMemo, useState } from 'react';
 import DropDown from '../../components/DropDown';
 import { useStateContext } from '../../contexts/ContextProvider';
 import { LineChart } from '../../components';
-import { XAxisLineChartSetting, YAxisRevenueChart } from '../../constants/charts';
+import {
+  XAxisLineChartSetting,
+  YAxisRevenueChart,
+} from '../../constants/charts';
 import { lineChartData } from '../../data/dummy';
 import { filterDateTimeData } from '../../utils/helpingFunction';
 
 const RevenueChart = () => {
   const { currentMode } = useStateContext();
   const [filterType, setFilterType] = useState(
-    JSON.parse(localStorage.getItem('filterTypeRevenueChart')) ?? XAxisLineChartSetting[0]
+    JSON.parse(localStorage.getItem('filterTypeRevenueChart')) ??
+      XAxisLineChartSetting[0]
   );
   const data = lineChartData[0];
   const changeFilterType = (value) => {
