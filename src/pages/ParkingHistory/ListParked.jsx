@@ -83,7 +83,7 @@ const ListParked = () => {
         />
       </div>
       <GridComponent
-        dataSource={parkedVehicles}
+        dataSource={parkingsData}
         width="auto"
         allowPaging
         allowSorting

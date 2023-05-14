@@ -4,7 +4,7 @@ import { useStateContext } from '../../contexts/ContextProvider';
 import { LineChart } from '../../components';
 import {
   XAxisLineChartSetting,
-  YAxisRevenueChart,
+  YAxisCustomerChart,
 } from '../../constants/charts';
 import { lineChartData } from '../../data/dummy';
 import { filterDateTimeData } from '../../utils/helpingFunction';
@@ -15,7 +15,7 @@ const CustomerChart = () => {
     JSON.parse(localStorage.getItem('filterTypeCustomerChart')) ??
       XAxisLineChartSetting[0]
   );
-  const data = lineChartData[0];
+  const data = lineChartData[1];
   const changeFilterType = (value) => {
     localStorage.setItem('filterTypeCustomerChart', JSON.stringify(value));
     setFilterType(value);
@@ -39,7 +39,7 @@ const CustomerChart = () => {
       <LineChart
         id="customers"
         LinePrimaryXAxis={filterType.setting}
-        LinePrimaryYAxis={YAxisRevenueChart}
+        LinePrimaryYAxis={YAxisCustomerChart}
         data={filteredData}
       />
     </>

@@ -8,7 +8,7 @@ import TimeChart from './TimeChart';
 const Dashboard = () => {
   return (
     <div className="p-4 mx-6 bg-white rounded-lg h-full dark:bg-secondary-dark-bg dark:text-gray-200">
-      <div className="flex flex-wrap justify-between gap-4 items-center m-2">
+      <div className="flex flex-wrap gap-4 items-center m-2">
         {earningData.map((item) => (
           <div
             key={item.title}

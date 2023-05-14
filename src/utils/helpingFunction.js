@@ -1,14 +1,15 @@
 export const filterDateTimeData = (data, type) => {
   const today = new Date();
   const filteredData = data.filter((datum) => {
-    const datumDate = new Date(datum.x);
+    const datumDate = datum.x;
     switch (type) {
       case 'week':
         const weekStart = new Date(
           today.getFullYear(),
           today.getMonth(),
-          today.getDate() - today.getDay()
+          today.getDate() - (today.getDay() === 0 ? 7 : today.getDay())
         );
+        console.log(weekStart);
         return datumDate >= weekStart;
       case 'month':
         const monthStart = new Date(today.getFullYear(), today.getMonth(), 1);
@@ -20,5 +21,6 @@ export const filterDateTimeData = (data, type) => {
         return false;
     }
   });
+  console.log(filteredData);
   return filteredData;
 };
