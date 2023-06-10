@@ -8,6 +8,6 @@ export const httpClient = axios.create({
     Accept: 'application/json,application/x-www-form-urlencoded,text/plain,*/*',
     'Content-Type': 'application/json',
     'X-mock-match-request-body': true,
-    Authorization: 'Bearer <AccessToken>'
+    Authorization: 'Bearer <AccessToken>',
   },
 });

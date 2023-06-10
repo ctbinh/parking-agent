@@ -20,24 +20,26 @@ const ticketApi = {
       method: 'update_month_ticket',
       params: {
         data: {
-          price: value
-        }
+          price: value,
+        },
       },
     };
     return httpClient.put(URL, params);
   },
-  
+
   updateTicketPerHour(startPrice, hour, bonusPrice) {
     const params = {
       method: 'update_ticket_per_hour',
       params: {
         data: {
-          startPrice, hour, bonusPrice
-        }
+          startPrice,
+          hour,
+          bonusPrice,
+        },
       },
     };
     return httpClient.put(URL, params);
-  }
+  },
 };
 
 export default ticketApi;
